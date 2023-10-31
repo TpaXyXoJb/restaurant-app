@@ -1,10 +1,12 @@
 import os
 
 import dj_database_url
+# from secret_keys import YANDEX_API
 
+# print(YANDEX_API)
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-SECRET_KEY = '!6xmo&@!7dzw8p6yxjnj&&1lur%4+fs!r2tuzb#6j(64s@m6)*'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 ROOT_URLCONF = 'config.urls'
 WSGI_APPLICATION = 'config.wsgi.application'
 ALLOWED_HOSTS = ['*']
@@ -21,6 +23,13 @@ DEBUG = os.environ.get('DEBUG', 'True') == 'True'
 ##################################################################
 
 DATABASES = {'default': dj_database_url.config()}
+
+##################################################################
+# Secret key
+##################################################################
+
+YANDEX_API = os.environ.get('YANDEX_API')
+print(YANDEX_API)
 
 ##################################################################
 # Logging settings
@@ -101,7 +110,6 @@ if not DEBUG:
         },
     ]
 
-
 ##################################################################
 # Static files settings (CSS, JavaScript, Images)
 ##################################################################
@@ -128,9 +136,11 @@ FILE_UPLOAD_DIRECTORY_PERMISSIONS = 0o777
 if DEBUG:
     from .installed_apps import *
 
+
     def show_toolbar(request):
         from django.conf import settings
         return settings.DEBUG
+
 
     DEBUG_TOOLBAR_CONFIG = {
         "SHOW_TOOLBAR_CALLBACK": show_toolbar,

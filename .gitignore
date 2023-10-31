@@ -1,6 +1,7 @@
 /client/build
 /server/staticfiles
 /server/media
+/server/config/settings/secret_keys.py
 .DS_Store
 .idea
 .vscode
@@ -10,3 +11,4 @@
 *.sql
 *.7z
 /pg_data
+.env
