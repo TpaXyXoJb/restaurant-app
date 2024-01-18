@@ -1,0 +1,3 @@
+from .get_coordinates import get_coordinates
+from .get_total_calories import get_total_calories
+from .get_avarage_price import add_avg_price
