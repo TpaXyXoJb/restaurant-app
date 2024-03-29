@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 
 
 def save_local_html():
-    url = 'https://www.takzdorovo.ru/db/nutritives/'
+    url = 'https://web.archive.org/web/20220309062231/https://www.takzdorovo.ru/db/nutritives/'
     req = requests.get(url)
     src = req.text
     with open('apps/scripts/index.html', 'w') as file:
@@ -12,6 +12,7 @@ def save_local_html():
 
 def get_data():
     save_local_html()
+
     with open('index.html') as file:
         src = file.read()
 

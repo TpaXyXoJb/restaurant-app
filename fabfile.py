@@ -13,6 +13,10 @@ def createsuperuser():
     local("docker exec -it $(docker ps | grep server_ | awk '{{ print $1 }}') python manage.py createsuperuser")
 
 
+def test():
+    local("docker exec -it $(docker ps | grep server_ | awk '{{ print $1 }}') python manage.py test apps.places.tests")
+
+
 def bash():
     local("docker exec -it $(docker ps | grep server_ | awk '{{ print $1 }}') bash")
 

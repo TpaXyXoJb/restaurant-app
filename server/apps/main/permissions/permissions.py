@@ -10,12 +10,12 @@ class IsOwnerOrReadOnly(IsAuthenticatedOrReadOnly):
 
 
 class IsPlaceOwnerOrReadOnly(IsAuthenticatedOrReadOnly):
+
     def has_permission(self, request, view):
         return bool(
             request.method in SAFE_METHODS or
             request.user and
-            request.user.is_authenticated and
-            request.user.restaurants.filter(id=request.data['restaurants']).exists()
+            request.user.is_authenticated
         )
 
     def has_object_permission(self, request, view, obj):

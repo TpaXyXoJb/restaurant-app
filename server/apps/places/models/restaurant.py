@@ -10,7 +10,7 @@ class Restaurant(models.Model):
     closing_time = models.TimeField(verbose_name="Время закрытия")
     photo = models.ImageField(null=True, verbose_name="Фото заведения")
     address = models.CharField(max_length=256, verbose_name="Адрес заведения")
-    avg_cost = models.DecimalField(max_digits=9, decimal_places=6, null=True, blank=True,
+    avg_cost = models.DecimalField(max_digits=8, decimal_places=2, null=True, blank=True,
                                    verbose_name='Средняя стоимость')
     latitude = models.DecimalField(max_digits=9, decimal_places=6, null=True, blank=True, verbose_name="Широта")
     longitude = models.DecimalField(max_digits=9, decimal_places=6, null=True, blank=True, verbose_name="Долгота")

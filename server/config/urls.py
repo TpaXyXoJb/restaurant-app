@@ -2,6 +2,7 @@ from django.contrib import admin
 from django.conf import settings
 from django.urls import include, path
 from django.conf.urls.static import static
+from rest_framework.authtoken.views import obtain_auth_token
 
 from apps.api.routers import router
 
@@ -11,6 +12,7 @@ from .swagger_config import urlpatterns as swagger_urls
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
+    path('api/auth/token', obtain_auth_token, name='tokens'),
 ]
 
 urlpatterns += swagger_urls

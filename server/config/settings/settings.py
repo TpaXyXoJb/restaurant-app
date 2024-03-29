@@ -1,9 +1,7 @@
 import os
 
 import dj_database_url
-# from secret_keys import YANDEX_API
 
-# print(YANDEX_API)
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 SECRET_KEY = os.environ.get('SECRET_KEY')
@@ -29,7 +27,6 @@ DATABASES = {'default': dj_database_url.config()}
 ##################################################################
 
 YANDEX_API = os.environ.get('YANDEX_API')
-print(YANDEX_API)
 
 ##################################################################
 # Logging settings

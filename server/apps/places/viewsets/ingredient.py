@@ -1,7 +1,6 @@
 from rest_framework import viewsets
 from rest_framework import mixins
 from django.utils.decorators import method_decorator
-from django.views.decorators.cache import cache_page
 from drf_yasg.utils import swagger_auto_schema
 from django_filters import rest_framework as filters
 from rest_framework.permissions import IsAuthenticatedOrReadOnly

@@ -2,16 +2,20 @@
 
 from django.db import migrations
 from apps.scripts.get_calories_data import get_data
+from apps.scripts.data import data as d
+
 
 def insert_data(apps, schema_editor):
+    try:
+        data = get_data()
+    except FileNotFoundError:
+        data = d
     Ingredient = apps.get_model('places', 'Ingredient')
-    data = get_data()
     for i in range(len(data)):
         Ingredient.objects.create(name=data[i][0], product_calorie=data[i][1])
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ('places', '0001_initial'),
     ]
