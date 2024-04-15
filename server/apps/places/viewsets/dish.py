@@ -12,6 +12,9 @@ from apps.places.filters.filters import DjangoFilterDescriptionInspector, DishFi
     filter_inspectors=[DjangoFilterDescriptionInspector]
 ))
 class DishViewSet(viewsets.ModelViewSet):
+    """
+    View set for dish model
+    """
     queryset = Dish.objects.all()
     serializer_class = DishSerializer
     permission_classes = [IsPlaceOwnerOrReadOnly]

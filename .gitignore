@@ -2,6 +2,7 @@
 /server/staticfiles
 /server/media
 /server/config/settings/secret_keys.py
+/server/apps/scripts/index.html
 .DS_Store
 .idea
 .vscode

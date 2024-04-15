@@ -4,6 +4,9 @@ from .restaurant import Restaurant
 
 
 class Dish(models.Model):
+    """
+    Dish model
+    """
     name = models.CharField(max_length=128, verbose_name="Название блюда")
     photo = models.ImageField(null=True, verbose_name="Фото блюда")
     total_calories = models.DecimalField(max_digits=8, decimal_places=2, default=0, verbose_name="Общая калорийность")

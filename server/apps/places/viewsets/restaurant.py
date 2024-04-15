@@ -15,6 +15,9 @@ from apps.places.filters.filters import DjangoFilterDescriptionInspector, Restau
 @method_decorator(name='list', decorator=cache_page(timeout=60 * 15))
 @method_decorator(name='retrieve', decorator=cache_page(timeout=60 * 15))
 class RestaurantViewSet(viewsets.ModelViewSet):
+    """
+    View set for restaurant model
+    """
     queryset = Restaurant.objects.all().order_by('id')
     serializer_class = RestaurantSerializer
     permission_classes = [IsOwnerOrReadOnly]

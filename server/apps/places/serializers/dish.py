@@ -3,6 +3,9 @@ from apps.places.models.dish import Dish
 
 
 class DishSerializer(serializers.ModelSerializer):
+    """
+    Serializer for dish model
+    """
     class Meta:
         model = Dish
         fields = (

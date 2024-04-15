@@ -8,7 +8,7 @@ from apps.places.models.ingredient import Ingredient
 
 class DjangoFilterDescriptionInspector(CoreAPICompatInspector):
     """
-    Описание к полям фильтрации
+    Description for filter fields
     """
 
     def get_filter_parameters(self, filter_backend):
@@ -22,6 +22,9 @@ class DjangoFilterDescriptionInspector(CoreAPICompatInspector):
 
 
 class RestaurantFilter(django_filters.FilterSet):
+    """
+    Filter for restaurants
+    """
     name = django_filters.CharFilter(lookup_expr='icontains')
     cost_gte = django_filters.NumberFilter(field_name='avg_cost', lookup_expr='gte', label='Мин. средняя стоимость')
     cost_lte = django_filters.NumberFilter(field_name='avg_cost', lookup_expr='lt', label='Макс. средняя стоимость')
@@ -45,6 +48,9 @@ class RestaurantFilter(django_filters.FilterSet):
 
 
 class DishFilter(django_filters.FilterSet):
+    """
+    Filter for dishes
+    """
     name = django_filters.CharFilter(lookup_expr='icontains')
     calories_gte = django_filters.NumberFilter(field_name='total_calories', lookup_expr='gte',
                                                label='Мин. калорийность')
@@ -79,6 +85,9 @@ class DishFilter(django_filters.FilterSet):
 
 
 class IngredientFilter(django_filters.FilterSet):
+    """
+    Filter for ingredients
+    """
     name = django_filters.CharFilter(lookup_expr='icontains')
     calories_gte = django_filters.NumberFilter(field_name='product_calorie', lookup_expr='gte',
                                                label='Мин. калорийность')

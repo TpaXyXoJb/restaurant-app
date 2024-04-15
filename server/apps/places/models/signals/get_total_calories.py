@@ -6,6 +6,9 @@ from apps.places.models.dish import Dish
 
 @receiver(m2m_changed, sender=Dish.ingredients.through)
 def get_total_calories(sender, instance, **kwargs):
+    """
+    Calculate total calories for dish
+    """
     dish = Dish.objects.filter(id=instance.id)
     summ = dish.aggregate(Sum('ingredients__product_calorie'))
     value = summ.get('ingredients__product_calorie__sum') or 0

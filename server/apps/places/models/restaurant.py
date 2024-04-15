@@ -3,6 +3,9 @@ from django.contrib.auth.models import User
 
 
 class Restaurant(models.Model):
+    """
+    Restaurant model
+    """
     name = models.CharField(max_length=128, verbose_name="Название заведения")
     owner = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="Владелец заведения",
                               related_name='restaurants')

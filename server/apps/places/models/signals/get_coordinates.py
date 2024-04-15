@@ -7,6 +7,9 @@ from config.settings.settings import YANDEX_API
 
 @receiver(post_save, sender=Restaurant)
 def get_coordinates(sender, instance, **kwargs):
+    """
+    Gets coordinates using Yandex Geocoder API and adds to restaurant's fields
+    """
     if instance.latitude is None:
         client = Client(YANDEX_API)
         coordinates = client.coordinates(instance.address)

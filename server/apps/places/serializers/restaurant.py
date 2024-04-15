@@ -4,6 +4,9 @@ from apps.places.models.restaurant import Restaurant
 
 
 class RestaurantSerializer(serializers.ModelSerializer):
+    """
+    Serializer for restaurant model
+    """
     class Meta:
         model = Restaurant
         fields = (

@@ -17,6 +17,9 @@ class IngredientViewSet(
     mixins.RetrieveModelMixin,
     viewsets.GenericViewSet
 ):
+    """
+    ViewSet for listing and retrieving ingredients
+    """
     queryset = Ingredient.objects.all()
     serializer_class = IngredientSerializer
     permission_classes = [IsAuthenticatedOrReadOnly]

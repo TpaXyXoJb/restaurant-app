@@ -17,16 +17,25 @@ services:
             dockerfile: ./server/Dockerfile
         command: gunicorn config.wsgi -c ./config/gunicorn.py
         volumes:
+            - ./server/staticfiles:/server/staticfiles
             - ./server/media:/server/media
         depends_on:
             - db
+            - redis
         environment:
             DEBUG: 'False'
             DATABASE_URL: 'postgres://postgres:@db:5432/postgres'
+            REDIS_URL: 'redis://redis:6379'
             BROKER_URL: 'amqp://user:password@rabbitmq:5672/my_vhost'
+        env_file:
+            -   .env
 
     db:
         image: postgres:11.2
         environment:
             POSTGRES_DB: postgres
             POSTGRES_USER: postgres
+    redis:
+        image: redis
+        ports:
+            - '6379:6379'

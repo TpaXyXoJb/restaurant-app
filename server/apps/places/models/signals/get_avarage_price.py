@@ -7,6 +7,9 @@ from apps.places.models.dish import Dish
 
 @receiver(post_save, sender=Dish)
 def add_avg_price(sender, instance, **kwargs):
+    """
+    Adds average price to dish
+    """
     restaurant = Restaurant.objects.get(pk=instance.restaurants_id)
     price = restaurant.dish_set.aggregate(Avg('price'))
     value = price.get('price__avg')
